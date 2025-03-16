@@ -28,32 +28,32 @@ export class MailerService {
     
     const { name: clientName, description, email, phone } = createMailDto;
 
-    // const { error: errorClient } = await this.resend.emails.send(
-    //   {
-    //     from: `${this.emailToUse.name} <${this.emailToUse.email}>`,
-    //     to: [email],
-    //     subject: `Hemos recibido tu solicitud!`,
-    //     html: formatRequestClientNotificationHTML(),
-    //   }
-    // );
+    const { error: errorClient } = await this.resend.emails.send(
+      {
+        from: `${this.emailToUse.name} <${this.emailToUse.email}>`,
+        to: [email],
+        subject: `Hemos recibido tu solicitud!`,
+        html: formatRequestClientNotificationHTML(),
+      }
+    );
 
-    // if (errorClient) {
-    //   throw new InternalServerErrorException(errorClient.message);
-    // }
+    if (errorClient) {
+      throw new InternalServerErrorException(errorClient.message);
+    }
 
-    // const { error: errorOwner } = await this.resend.emails.send(
-    //   {
-    //     from: `${this.emailToUse.name} <${this.emailToUse.email}>`,
-    //     to: [this.emailToNotify],
-    //     subject: `Nueva Peticion de Cotizacion (${clientName})`,
-    //     html: formatRequestOwnerNotificationHTML(clientName, description, phone, email),
-    //     attachments: await this.getAttachments(files)
-    //   }
-    // );
+    const { error: errorOwner } = await this.resend.emails.send(
+      {
+        from: `${this.emailToUse.name} <${this.emailToUse.email}>`,
+        to: [this.emailToNotify],
+        subject: `Nueva Peticion de Cotizacion (${clientName})`,
+        html: formatRequestOwnerNotificationHTML(clientName, description, phone, email),
+        attachments: await this.getAttachments(files)
+      }
+    );
 
-    // if (errorOwner) {
-    //   throw new InternalServerErrorException(errorOwner.message);
-    // }
+    if (errorOwner) {
+      throw new InternalServerErrorException(errorOwner.message);
+    }
 
     return {
       sucess: true,
