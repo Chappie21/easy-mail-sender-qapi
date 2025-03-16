@@ -23,9 +23,10 @@ export class MailerController {
           new MaxFileSizeValidator({ maxSize: maxSizeFiles }),
           new FileTypeValidator({ fileType: admitedFilesRegex }),
         ],
+        fileIsRequired: false
       })
     )
-    files: Array<Express.Multer.File>
+    files?: Array<Express.Multer.File>
   ) {
     return await this.mailerService.sendNotificationEmail(createMailerDto, files);
   }

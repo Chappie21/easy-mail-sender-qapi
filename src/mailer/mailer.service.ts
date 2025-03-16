@@ -24,7 +24,7 @@ export class MailerService {
 
   }
 
-  async sendNotificationEmail(createMailDto: CreateMailDto, files: Array<Express.Multer.File>) {
+  async sendNotificationEmail(createMailDto: CreateMailDto, files?: Array<Express.Multer.File>) {
     
     const { name: clientName, description, email, phone } = createMailDto;
 
@@ -47,7 +47,7 @@ export class MailerService {
         to: [this.emailToNotify],
         subject: `Nueva Peticion de Cotizacion (${clientName})`,
         html: formatRequestOwnerNotificationHTML(clientName, description, phone, email),
-        attachments: await this.getAttachments(files)
+        attachments: files ? await this.getAttachments(files) : []
       }
     );
 
