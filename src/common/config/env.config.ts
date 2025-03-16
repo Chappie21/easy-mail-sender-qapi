@@ -4,4 +4,6 @@ export const EnvConfigLoader = () => ({
     notificationEmail: process.env.NOTIFICATION_EMAIL,
     notificationEmailName: process.env.NOTIFICATION_EMAIL_NAME,
     receiveNotificationEmail: process.env.RECEIVE_NOTIFICATION_EMAIL,
+    rateLimitTime: Number(process.env.RATE_LIMIT_TIME) || 50000,
+    rateLimitRequest: Number(process.env.RATE_LIMIT) || 1
 });

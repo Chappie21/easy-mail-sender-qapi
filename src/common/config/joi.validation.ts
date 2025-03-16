@@ -6,4 +6,6 @@ export const JoiValidationSchema = joi.object({
     NOTIFICATION_EMAIL: joi.string().email().required(),
     NOTIFICATION_EMAIL_NAME: joi.string().required(),
     RECEIVE_NOTIFICATION_EMAIL: joi.string().email().required(),
+    RATE_LIMIT_TIME: joi.number().integer().default(60),
+    RATE_LIMIT_REQUESTS: joi.number().integer().default(5)
 });
