@@ -56,7 +56,7 @@ export class MailerService {
     }
 
     return {
-      sucess: true,
+      success: true,
       message: `Mail sent successfully`
     };
   }

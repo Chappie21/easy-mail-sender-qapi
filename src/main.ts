@@ -13,6 +13,10 @@ async function bootstrap() {
   }));
   app.setGlobalPrefix('/api')
 
+  app.enableCors({
+    origin: [process.env.ADMITED_ORIGIN]
+  });
+
   await app.listen(Number(process.env.PORT));
 
   logger.log(`API is running on port: ${process.env.PORT}`);

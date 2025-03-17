@@ -10,7 +10,7 @@ export class CreateMailDto {
     @IsEmail()
     email: string;
 
-    @IsPhoneNumber()
+    @IsPhoneNumber('VE')
     phone: string;
 
     @IsString()
