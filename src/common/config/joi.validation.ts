@@ -2,7 +2,11 @@ import * as joi from 'joi';
 
 export const JoiValidationSchema = joi.object({
     PORT: joi.number().default(4500),
-    RESEND_API_KEY: joi.string().required(),
+    SMTP_HOST: joi.string().required(),
+    SMTP_PORT: joi.number().required(),
+    SMTP_SECURE: joi.bool().required(),
+    SMTP_USER: joi.string().required(),
+    SMTP_PASS: joi.string().required(),
     NOTIFICATION_EMAIL: joi.string().email().required(),
     NOTIFICATION_EMAIL_NAME: joi.string().required(),
     RECEIVE_NOTIFICATION_EMAIL: joi.string().email().required(),
