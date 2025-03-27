@@ -1,6 +1,10 @@
 export const EnvConfigLoader = () => ({
     port: process.env.PORT || 4500,
-    resendApiKey: process.env.RESEND_API_KEY,
+    smtpHost: process.env.SMTP_HOST,
+    smtpPort: process.env.SMTP_PORT,
+    smtpSecure: process.env.SMTP_SECURE,
+    smtpUser: process.env.SMTP_USER,
+    smtpPass: process.env.SMTP_PASS,
     notificationEmail: process.env.NOTIFICATION_EMAIL,
     notificationEmailName: process.env.NOTIFICATION_EMAIL_NAME,
     receiveNotificationEmail: process.env.RECEIVE_NOTIFICATION_EMAIL,
