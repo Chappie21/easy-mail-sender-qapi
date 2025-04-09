@@ -23,8 +23,11 @@ export class CaptchaValidatorService {
       body: formData
     });
     const data = await result.json();
-    console.log('realiza la validacion');
-    if (!data.succes) throw new BadRequestException('CAPTCHA no valido');
+    console.log(data);
+    if (!data.succes) throw new BadRequestException('CAPTCHA no valido', {
+      cause: new Error(),
+      description: JSON.stringify(data)
+    });
 
     return { success: true };
   }
