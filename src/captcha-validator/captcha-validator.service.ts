@@ -24,7 +24,7 @@ export class CaptchaValidatorService {
     });
     const data = await result.json();
     console.log(data);
-    if (!data.succes) throw new BadRequestException('CAPTCHA no valido', {
+    if (!data.success) throw new BadRequestException('CAPTCHA no valido', {
       cause: new Error(),
       description: JSON.stringify(data)
     });

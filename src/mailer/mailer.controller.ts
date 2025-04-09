@@ -37,7 +37,6 @@ export class MailerController {
 
     if (!ipAddress) throw new BadRequestException('IP no fue indicado');
 
-    console.log(ipAddress);
     await this.captchaValidatorService.validateCaptcha(createMailerDto['cf-turnstile-response'], ipAddress);
 
     return await this.mailerService.sendNotificationEmail(createMailerDto, files);
