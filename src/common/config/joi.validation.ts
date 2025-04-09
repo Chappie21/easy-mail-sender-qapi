@@ -12,5 +12,7 @@ export const JoiValidationSchema = joi.object({
     RECEIVE_NOTIFICATION_EMAIL: joi.string().email().required(),
     RATE_LIMIT_TIME: joi.number().integer().default(60),
     RATE_LIMIT_REQUESTS: joi.number().integer().default(5),
-    ADMITED_ORIGIN: joi.string().uri().default('http://localhost:4500')
+    ADMITED_ORIGIN: joi.string().uri().default('http://localhost:4500'),
+    CLOUDFLARE_CAPTCHA_SECRET_KEY: joi.string().required(),
+    CLOUDFLARE_CAPTCHA_URL: joi.string().uri().required()
 });

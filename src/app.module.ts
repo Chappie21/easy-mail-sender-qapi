@@ -4,6 +4,7 @@ import { CommonModule } from './common/common.module';
 import { EnvConfigLoader, JoiValidationSchema } from './common/config';
 import { MailerModule } from './mailer/mailer.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
+import { CaptchaValidatorModule } from './captcha-validator/captcha-validator.module';
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
       ]
     }),
     CommonModule,
-    MailerModule
+    MailerModule,
+    CaptchaValidatorModule
   ],
   controllers: [],
   providers: [ThrottlerGuard],
