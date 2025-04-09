@@ -17,5 +17,8 @@ export class CreateMailDto {
     @MaxLength(5000)
     description: string;
 
+    @IsString()
+    'cf-turnstile-response': string;
+
     files: File[];
 }
